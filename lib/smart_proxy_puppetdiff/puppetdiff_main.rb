@@ -1,3 +1,5 @@
+require 'open3'
+
 module Proxy::Puppetdiff
   extend ::Proxy::Util
   extend ::Proxy::Log
@@ -20,8 +22,13 @@ module Proxy::Puppetdiff
       cmd += " --puppet-binary #{puppet_bin}"
       cmd += " --display-detail-add"
       cmd += " --color"
-      #cmd += " --output-format json" # JSON output option, probably not useful
-      return `#{cmd}`
+      stdout, stderr, status = Open3.capture3(cmd)
+      if [0,2].include? status.exitstatus
+        return stdout
+      else
+	message = stderr.split("\n").select{ |l| l.include? '[Puppet Error]' }.join("\n")
+	return "Exited: #{status}\n\n#{message}"
+      end
     end
 
   end
