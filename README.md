@@ -1,29 +1,22 @@
 # Smart Proxy - Puppetdiff
 
 This plugin adds an API to retrieve differences in Puppet catalogs via the
-awesome `octocatalog-diff` [link](https://github.com/github/octocatalog-diff).
+awesome [`octocatalog-diff`](https://github.com/github/octocatalog-diff).
+
 More docs to follow.
 
 ## Installation
 
-This plugin is not yet packaged. To use it in a source install, clone the repo
-and then add a file to your Smart Proxy's `bundler.d` directory like this:
-
-```
-$ cat > $proxydir/bundler.d/smart_proxy_puppetdiff.rb <<EOF
-gem 'smart_proxy_puppetdiff', :path => "/path/to/smart_proxy_puppetdiff"
-group :puppetdiff do
-  gem 'octocatalog-diff'
-end
-EOF
-```
+This plugin is not yet packaged. To use it in a source install, drop the
+[example bundler file](/bundler.d/puppetdiff.rb) into the `bundler.d` directory
+in your smart-proxy.
 
 This plugin also depends on having the `Puppet` feature enabled on your Proxy.
 
 ## Configuration
 
 You can create `settings.d/puppetdiff.rb` to control some settings. See the
-included example config file for options.
+[included example config](/settings.d/puppetdiff.yml.example) file for options.
 
 ## Copyright
 

@@ -1,3 +1,19 @@
 ---
 :enabled: true
-:hello_greeting: 'O hai!'
+
+# Where are the environments on-disk
+# :environments_dir: /etc/puppet/environments (Puppet 3)
+:environments_dir: /etc/puppetlabs/code/environments
+
+# Where are the facts cached from the agent
+# :facts_dir: /var/lib/puppet/yaml/facts (Puppet 3)
+:facts_dir: /opt/puppetlabs/server/data/puppetserver/yaml/facts
+
+# Where is the ENC script
+# :enc: /etc/puppet/node.rb (Puppet 3)
+:enc: /etc/puppetlabs/puppet/node.rb
+
+# Where is the puppet binary
+# defaults to "which puppet"
+# :puppet: /usr/bin/puppet
+:puppet: /opt/puppetlabs/bin/puppet
